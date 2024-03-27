@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Java template
 # Compiled class file
 *.class
@@ -24,3 +25,39 @@
 hs_err_pid*
 replay_pid*
 
+=======
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+out/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+logs/
+
+### VS Code ###
+.vscode/
+>>>>>>> cd93a7acbb1b85a5ac2bbeb09bac07112589a4e3

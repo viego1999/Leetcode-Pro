@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e7f9ab1-524f-4766-9f02-ff699578fd4c" name="Changes" comment="add something 4/13 23:30">
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem1044.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem1123.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem1448.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem148_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem1921.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem2240.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem2511.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem2594.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem2596.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem2605.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem2651.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/problems/Problem449_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/leetcode/statistics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/leetcode/statistics.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/力扣.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/力扣.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -913,6 +901,10 @@
       <workItem from="1695005564829" duration="9000" />
       <workItem from="1697884041117" duration="673000" />
       <workItem from="1699080922536" duration="21000" />
+      <workItem from="1699330066038" duration="157000" />
+      <workItem from="1702024672793" duration="623000" />
+      <workItem from="1710403731564" duration="27555000" />
+      <workItem from="1711371724867" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1644810414452</created>
