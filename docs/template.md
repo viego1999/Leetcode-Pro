@@ -64,26 +64,37 @@ if (l >= r) return;
 bool check(int x) {/* ... */} // 检查x是否满足某种性质
 
 // 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：
-int bsearch_1(int l, int r)
-{
-    while (l < r)
-    {
-        int mid = l + r >> 1;
-        if (check(mid)) r = mid;    // check()判断mid是否满足性质
-        else l = mid + 1;
+// 寻找第一个满足条件的位置（寻找边界位置）
+int bsearch_1(int l, int r) {
+    while (l < r) {
+        int mid = l + r >> 1;  // 向下取整
+        if (check(mid)) r = mid;  // mid满足条件 → 答案在左边（包含mid）
+        else l = mid + 1;         // mid不满足 → 答案在右边（不包含mid）
     }
-    return l;
+    return l;  // 最终 l == r
 }
+
 // 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用：
+// 寻找最后一个满足条件的位置（寻找边界位置）
 int bsearch_2(int l, int r)
 {
-    while (l < r)
-    {
-        int mid = l + r + 1 >> 1;
-        if (check(mid)) l = mid;
+    while (l < r) {
+        int mid = l + r + 1 >> 1;  // 向上取整防止死循环（当 l 和 r 相邻时）
+        if (check(mid)) l = mid;  // mid满足条件 → 答案在右边（包含mid）
+        else r = mid - 1;         // mid不满足 → 答案在左边（不包含mid）
+    }
+}
+
+// 标准二分查找（查找确切元素是否存在）
+int binary_search(int[] nums, int target) {
+    int l = 0, r = nums.length - 1;
+    while (l <= r) {  // 使用 <=
+        int mid = l + (r - l) / 2;
+        if (nums[mid] == target) return mid;
+        else if (nums[mid] < target) l = mid + 1;
         else r = mid - 1;
     }
-    return l;
+    return -1;  // 未找到
 }
 ```
 
