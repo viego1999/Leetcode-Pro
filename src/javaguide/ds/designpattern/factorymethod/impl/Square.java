@@ -1,6 +1,6 @@
 package javaguide.ds.designpattern.factorymethod.impl;
 
-import ds.designpattern.factorymethod.Shape;
+import javaguide.ds.designpattern.factorymethod.Shape;
 
 /**
  * @author Wuxy

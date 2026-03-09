@@ -1,6 +1,6 @@
 package javaguide.ds.advance;
 
-import ds.advance.policy.DiscardOldestPolicy;
+import javaguide.ds.advance.policy.DiscardOldestPolicy;
 
 import java.util.concurrent.TimeUnit;
 

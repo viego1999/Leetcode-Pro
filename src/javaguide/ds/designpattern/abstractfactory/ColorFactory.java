@@ -1,8 +1,8 @@
 package javaguide.ds.designpattern.abstractfactory;
 
-import ds.designpattern.abstractfactory.colors.Blue;
-import ds.designpattern.abstractfactory.colors.Green;
-import ds.designpattern.abstractfactory.colors.Red;
+import javaguide.ds.designpattern.abstractfactory.colors.Blue;
+import javaguide.ds.designpattern.abstractfactory.colors.Green;
+import javaguide.ds.designpattern.abstractfactory.colors.Red;
 
 /**
  * @author Wuxy

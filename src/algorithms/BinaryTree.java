@@ -52,6 +52,7 @@ public class BinaryTree {
     }
 
     /*
+     * 先序遍历
         1, 2, null, 3, 4, 5
      */
     public static TreeNode createBinaryTree(Deque<Integer> list) {
@@ -67,6 +68,10 @@ public class BinaryTree {
     }
 
     /**
+     * 根据先序和中序遍历序列创建二叉树
+     * - 先序：1 → 2 → 3 → 4 → 5 → 6 → 7
+     * - 中序：3 → 2 → 5 → 6 → 4 → 7 → 1
+     * <p>
      * 创建步骤：<br>
      * <li>1. 取先序遍历的第一个结点作为根结点，序列的结点数为n</li>
      * <li>2. 在中序遍历中查找根结点，其位置为i，那么在中序遍历中根结点之前的i个结点构成根结点左子树的中序遍历序列，根结点后n-i-1个结点构成根结点右子树的中序遍历序列</li>
@@ -96,6 +101,16 @@ public class BinaryTree {
         return root;
     }
 
+    /**
+     * 根据中序和后序遍历序列创建二叉树
+     * - 中序：3 → 2 → 5 → 6 → 4 → 7 → 1
+     * - 后序：3 → 5 → 6 → 4 → 2 → 7 → 1
+     * <p>
+     * 创建步骤：<br>
+     * <li>1. 取后序遍历的最后一个结点作为根结点，序列的结点数为n</li>
+     * <li>2. 在中序遍历中查找根结点，其位置为i，那么在中序遍历中根结点之前的i个结点构成根结点左子树的中序遍历序列，根结点后n-i-1个结点构成根结点右子树的中序遍历序列</li>
+     * <li>3. 在后序遍历中，根结点之前i个结点构成的序列为根结点左子树的后序遍历序列，后序遍历之后n-i-1个结点构成的序列为根结点右子树的后序遍历序列</li>
+     */
     public static TreeNode createBinaryTreeInAndPost(int[] inOrder, int[] postOrder, int in, int post, int n) {
         if (n <= 0) return null;
         int c = postOrder[post];
@@ -105,6 +120,7 @@ public class BinaryTree {
         }
 
         TreeNode root = new TreeNode(c);
+        // i 左子树个数，(n-i-1) 右子树个数，所以左子树后序序列结束位置为 post - (右子树长度+根) = post - (n-i-1+1) = post-(n-i)
         root.left = createBinaryTreeInAndPost(inOrder, postOrder, in, post - (n - i), i);
         root.right = createBinaryTreeInAndPost(inOrder, postOrder, in + i + 1, post - 1, n - i - 1);
         return root;
@@ -188,20 +204,25 @@ public class BinaryTree {
     public static void postOrderBinaryTreeNone(TreeNode root) {
         if (root == null) return;
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode prev = root; // 记录上一个被访问的节点
-        while (!stack.isEmpty() || root != null) {
+        TreeNode prev = root; // 初始时 prev 指向 root（稍后会被覆盖）
+        while (!stack.isEmpty() || root != null) {  // 只要栈不空或还有节点没处理，就继续
+            // 第一阶段：把所有左子树压栈（像递归先访问左）
             while (root != null) {
                 stack.push(root);
-                root = root.left;
+                root = root.left;  // 一直往左走
             }
+            // 现在 root 为 null，说明已经走到最左边的叶子
+            // 看栈顶节点的右子树（因为后序是左→右→根）
             root = stack.peek().right;
-            // 若栈顶节点的右节点为空或者上一次visit过，则按顺序应该访问栈顶节点
+            // 关键判断：右子树为空 或者 右子树已经处理过（prev 就是它）
             if (root == null || root == prev) {
+                // 可以放心弹出栈顶节点并访问（打印）
                 root = stack.pop();
                 System.out.print(root.val + " ");
-                prev = root;
-                root = null;
+                prev = root;          // 更新 prev 为刚访问的节点
+                root = null;          // 重要！置空，避免下次再走 while(root != null) 压栈
             }
+            // 如果右子树不为空且没被访问过，就不弹出，继续处理右子树（进入下一轮循环）
         }
     }
 
@@ -213,7 +234,7 @@ public class BinaryTree {
         } else return tree1 == tree2;
     }
 
-    private static class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

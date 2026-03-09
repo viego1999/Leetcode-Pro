@@ -1,6 +1,6 @@
 package javaguide.ds.designpattern.abstractfactory.colors;
 
-import ds.designpattern.abstractfactory.Color;
+import javaguide.ds.designpattern.abstractfactory.Color;
 
 /**
  * @author Wuxy

@@ -23,7 +23,7 @@ public class Problem3 {
 
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring("dvdec"));
-        Map<Character, Integer> map = new HashMap<>();
+        System.out.println(lengthOfLongestSubstring2("abba"));
     }
 
     public static int lengthOfLongestSubstring(String s) {

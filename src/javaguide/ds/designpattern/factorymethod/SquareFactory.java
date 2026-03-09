@@ -1,6 +1,6 @@
 package javaguide.ds.designpattern.factorymethod;
 
-import ds.designpattern.factorymethod.impl.Square;
+import javaguide.ds.designpattern.factorymethod.impl.Square;
 
 /**
  * @author Wuxy

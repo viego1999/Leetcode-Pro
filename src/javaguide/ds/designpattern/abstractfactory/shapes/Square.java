@@ -1,6 +1,6 @@
 package javaguide.ds.designpattern.abstractfactory.shapes;
 
-import ds.designpattern.abstractfactory.Shape;
+import javaguide.ds.designpattern.abstractfactory.Shape;
 
 /**
  * @author Wuxy

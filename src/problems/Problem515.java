@@ -1,6 +1,5 @@
 package problems;
 
-import com.sun.istack.internal.NotNull;
 import util.TreeNode;
 
 import java.util.ArrayList;
@@ -63,7 +62,7 @@ public class Problem515 {
         return ans;
     }
 
-    public void dfs(TreeNode node, int level, @NotNull List<Integer> ans) {
+    public void dfs(TreeNode node, int level, List<Integer> ans) {
         if (node == null) return;
         if (level == ans.size()) ans.add(node.val);
         else ans.set(level, Math.max(node.val, ans.get(level)));

@@ -7,11 +7,11 @@ import java.util.List;
 
 /**
  * 39. 组合总和
- *
+ * <p>
  * 给定一个无重复元素的正整数数组 candidates 和一个正整数 target ，找出 candidates 中所有可以使数字和为目标数 target 的唯一组合。
  * <p>
  * candidates 中的数字可以无限制重复被选取。如果至少一个所选数字数量不同，则两种组合是唯一的。
- *
+ * <p>
  * 对于给定的输入，保证和为 target 的唯一组合数少于 150 个。
  * <p>
  * 示例 1：
@@ -65,14 +65,12 @@ public class Problem39 {
             lists.add(new ArrayList<>(list));
             return;
         }
-
         int num = candidates[idx];
-        if (num <= target) {
-            list.add(num);
-            backtrack(candidates, target - num, lists, list, idx);
-            list.remove(Integer.valueOf(num));
-        }
-        backtrack(candidates, target, lists, list, idx + 1);
+        if (num > target) return;  // 剪枝
+        list.add(num);
+        backtrack(candidates, target - num, lists, list, idx);   // 用当前元素
+        list.remove(Integer.valueOf(num));
+        backtrack(candidates, target, lists, list, idx + 1); // 不用当前元素
     }
 
     public static void backtrack2(int[] candidates, int target, List<List<Integer>> lists, List<Integer> list, int idx) {

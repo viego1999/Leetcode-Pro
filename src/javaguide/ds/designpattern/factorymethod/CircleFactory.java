@@ -1,6 +1,6 @@
 package javaguide.ds.designpattern.factorymethod;
 
-import ds.designpattern.factorymethod.impl.Circle;
+import javaguide.ds.designpattern.factorymethod.impl.Circle;
 
 /**
  * @author Wuxy

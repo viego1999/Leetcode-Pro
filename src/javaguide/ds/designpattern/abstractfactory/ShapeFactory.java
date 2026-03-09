@@ -1,8 +1,8 @@
 package javaguide.ds.designpattern.abstractfactory;
 
-import ds.designpattern.abstractfactory.shapes.Circle;
-import ds.designpattern.abstractfactory.shapes.Rectangle;
-import ds.designpattern.abstractfactory.shapes.Square;
+import javaguide.ds.designpattern.abstractfactory.shapes.Circle;
+import javaguide.ds.designpattern.abstractfactory.shapes.Rectangle;
+import javaguide.ds.designpattern.abstractfactory.shapes.Square;
 
 /**
  * @author Wuxy

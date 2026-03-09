@@ -1,6 +1,6 @@
 package javaguide.ds.advance;
 
-import ds.advance.policy.RejectPolicy;
+import javaguide.ds.advance.policy.RejectPolicy;
 
 import java.util.concurrent.TimeUnit;
 

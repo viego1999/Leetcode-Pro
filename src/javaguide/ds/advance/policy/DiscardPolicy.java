@@ -1,6 +1,6 @@
 package javaguide.ds.advance.policy;
 
-import ds.advance.DefaultBlockingQueue;
+import javaguide.ds.advance.DefaultBlockingQueue;
 
 /**
  * @author Wuxy
