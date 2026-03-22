@@ -79,6 +79,8 @@ public class Problem5 {
         int[] range = new int[2];
 
         for (int i = 0; i < s.length(); i++) {
+            // 对于偶数长度的回文（如 "abba"），其中心是一段连续相同的字符。
+            // 无论选这段字符里的哪一个作为起点，最终向两边扩展得到的最大回文串都是一样的
             i = findLongest(s, i, range);
         }
 

@@ -6,7 +6,7 @@ import java.util.List;
 public class Problem438 {
     public static void main(String[] args) {
         String s = "ivxqakfyaqahufxfizupjrkkifjlbfqfeprqrfjvxnubntdtlvz", p =
-        "vxapufjqtnaviffihkpyrbrzfjenqtxlxfqkfjvazubkrdqluf";
+                "vxapufjqtnaviffihkpyrbrzfjenqtxlxfqkfjvazubkrdqluf";
         System.out.println(findAnagrams(s, p));
         System.out.println(findAnagramsOpt(s, p));
     }
@@ -66,6 +66,23 @@ public class Problem438 {
                 idxHash[idx] = idxHash[idx] != 0 ? idxHash[idx] : j + 1;
             }
             if (f) ans.add(i);
+        }
+        return ans;
+    }
+
+    public List<Integer> findAnagrams1(String s, String p) {
+        List<Integer> ans = new ArrayList<>();
+        if (s.length() < p.length()) return ans;
+        char[] ss = s.toCharArray(), ps = p.toCharArray();
+        int[] sh = new int[26], ph = new int[26];
+        for (char c : ps) ph[c - 'a']++;
+        int n = ss.length, m = ps.length, cnt = 0;
+        for (int i = 0; i < m; i++) if (++sh[ss[i] - 'a'] <= ph[ss[i] - 'a']) cnt++;
+        if (cnt == m) ans.add(0);
+        for (int i = 0, j = m; i < n - m; i++, j++) {
+            if (sh[ss[i] - 'a']-- <= ph[ss[i] - 'a']) cnt--;
+            if (++sh[ss[j] - 'a'] <= ph[ss[j] - 'a']) cnt++;
+            if (cnt == m) ans.add(i + 1);
         }
         return ans;
     }

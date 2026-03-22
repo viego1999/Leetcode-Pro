@@ -44,6 +44,30 @@ public class Problem25 {
         System.out.println(reverseKLists(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))), 2));
     }
 
+    public ListNode reverseKGroupOpt(ListNode head, int k) {
+        ListNode dummy = new ListNode(-1, head), point = dummy;
+        while (true) {
+            ListNode prev = point;
+            for (int i = 0; i < k; i++) {
+                point = point.next;
+                if (point == null) return dummy.next;
+            }
+            // succ - 下一轮开始节点（当前后继节点）
+            // curr - 当前要反转开始节点
+            // tail - 当前反正后的尾节点（下一轮的前驱节点）
+            ListNode succ = point.next, curr = prev.next, tail = curr;
+            point.next = null; // 当前节点断开后续
+            while (curr != null) {
+                ListNode next = curr.next;
+                curr.next = prev.next;
+                prev.next = curr;
+                curr = next;
+            }
+            tail.next = succ;
+            point = tail;
+        }
+    }
+
     /*
         Recursive method
      */
@@ -88,5 +112,23 @@ public class Problem25 {
         }
 
         return dummy.next;
+    }
+
+    public ListNode reverseKGroup_(ListNode head, int k) {
+        ListNode[] nodes = new ListNode[k];
+        ListNode dummy = new ListNode(-1, head), prev = dummy, curr;
+        while (true) {
+            curr = prev.next;
+            for (int i = 0; i < k; i++, curr = curr.next) {
+                if (curr != null) nodes[i] = curr;
+                else return dummy.next;
+            }
+            nodes[0].next = nodes[k - 1].next;
+            prev.next = nodes[k - 1];
+            for (int i = k - 1; i > 0; i--) {
+                nodes[i].next = nodes[i - 1];
+            }
+            prev = nodes[0];
+        }
     }
 }

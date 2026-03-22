@@ -164,4 +164,22 @@ public class Problem76 {
         }
         return true;
     }
+
+    public String minWindow1(String s, String t) {
+        char[] cs = s.toCharArray(), ts = t.toCharArray();
+        int[] hash1 = new int[128], hash2 = new int[128];
+        for (char c : ts) hash2[c]++;
+        int n = cs.length, m = ts.length, start = -1, len = n + 1;
+        for (int left = 0, right = 0, cnt = 0; right < n; right++) {
+            if (++hash1[cs[right]] <= hash2[cs[right]]) cnt++;
+            while (cnt == m && hash1[cs[left]] > hash2[cs[left]]) { // 当 cnt=m，时，左边有多余的字符则去掉（滑动）
+                hash1[cs[left++]]--;
+            }
+            if (cnt == m && right - left + 1 < len) {
+                start = left;
+                len = right - left + 1;
+            }
+        }
+        return start != -1 ? s.substring(start, start + len) : "";
+    }
 }
