@@ -105,7 +105,7 @@ public class Problem23 {
         }
     }
 
-    private static class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
         ListNode() {}

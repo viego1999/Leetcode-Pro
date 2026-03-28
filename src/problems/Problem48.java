@@ -53,6 +53,7 @@ public class Problem48 {
     }
 
     // 先转置，再对称
+    //  - 旋转 90 度，相当于把第一行变成最后一列（故，先转置，把第一行变成第一列，然后翻转就把第一列表成最后一列）
     public static void rotate_(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < i; j++) { // 上斜线（上对角线）

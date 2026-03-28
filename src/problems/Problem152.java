@@ -58,4 +58,15 @@ public class Problem152 {
         }
         return ans;
     }
+
+    public int maxProduct_(int[] nums) {
+        int n = nums.length, ans = nums[0], a = nums[0], b = nums[0];
+        for (int i = 1; i < n; i++) {
+            int t = a, c = nums[i];
+            a = Math.min(a * c, Math.min(b * c, c));
+            b = Math.max(t * c, Math.max(b * c, c));
+            ans = Math.max(ans, b);
+        }
+        return ans;
+    }
 }
